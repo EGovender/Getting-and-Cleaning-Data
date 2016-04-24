@@ -38,14 +38,14 @@ newlabels<-c("WALKING","WALKING_UPSTAIRS","WALKING_DOWNSTAIRS","SITTING","STANDI
 complete$label<-factor(complete$label,levels=c(1,2,3,4,5,6),labels=newlabels)
 
 ## 4.Appropriately labels the data set with descriptive variable names.
-## Make the following changes to the variable names:
-##Acc	    Accelerometer
-##Gyro	    Gyroscope
-##Freq	    Frequency
-##Mag	    Magnitude
-##tBody     timeBody
-##tGravity	timeGravity
-##fBody	    fastFourierTransform_Body
+### Make the following changes to the variable names:
+###Acc	    Accelerometer
+###Gyro	    Gyroscope
+###Freq	    Frequency
+###Mag	    Magnitude
+###tBody     timeBody
+###tGravity	timeGravity
+###fBody	    fastFourierTransform_Body
 
 NewColNames<-colnames(completeMeanStd)
 NewColNames<-gsub("[Aa]cc","Accelerometer",NewColNames)
