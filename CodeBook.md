@@ -6,7 +6,8 @@ The features selected for this database come from the Accelerometerelerometer an
 
 Subsequently, the body linear Accelerometereleration and angular velocity were derived in time to obtain Jerk signals (timeBodyAccelerometerJerk-XYZ and timeBodyGyroscopeJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (timeBodyAccelerometerMag, timeGravityAccelerometerMag, timeBodyAccelerometerJerkMag, timeBodyGyroscopeMag, timeBodyGyroscopeJerkMag). 
 
-Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fastFourierTransform_BodyAccelerometer-XYZ, fastFourierTransform_BodyAccelerometerJerk-XYZ, fastFourierTransform_BodyGyroscope-XYZ, fastFourierTransform_BodyAccelerometerJerkMag, fastFourierTransform_BodyGyroscopeMag, fastFourierTransform_BodyGyroscopeJerkMag. (Note the 'f' to indicate frequency domain signals). 
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fastFourierTransform_BodyAccelerometer-XYZ, fastFourierTransform_BodyAccelerometerJerk-XYZ, fastFourierTransform_BodyGyroscope-XYZ, fastFourierTransform_BodyAccelerometerJerkMag, fastFourierTransform_BodyGyroscopeMag, fastFourierTransform_BodyGyroscopeJerkMag. (Note the 'f' to indicate frequency domain signals).
+
 
 These signals were used to estimate variables of the feature vector for each pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
