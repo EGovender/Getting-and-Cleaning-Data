@@ -1,3 +1,7 @@
+#Transformation details
+
+There are 5 parts:
+
 ## 1.Merges the training and the test sets to create one data set.
 
 ###Read training dataset
@@ -61,3 +65,10 @@ colnames(completeMeanStd)<-NewColNames
 ## 5.From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 final <- aggregate(completeMeanStd[, 3:ncol(completeMeanStd)],by=list(subject = completeMeanStd$subject,label = completeMeanStd$label),mean) 
 write.table(final, file="tidy_data.txt", row.names=FALSE, col.names=TRUE)
+
+###How  run_analysis.R  implements the above steps:
+•Load both test and train data
+•Load the features and activity labels.
+•Extract the mean and standard deviation column names and data and save dataset.
+•Appropriately labels the data set with descriptive variable names of the newly saved dataset.
+•Use the updated dataset from the previous step to creates a second, independent tidy data set with the average of each variable for each activity and each subject.
