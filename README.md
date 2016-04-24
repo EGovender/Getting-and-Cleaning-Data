@@ -1,19 +1,19 @@
 ## 1.Merges the training and the test sets to create one data set.
 
-##Read training dataset
+###Read training dataset
 X_train<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/X_train.txt",header=FALSE) 
 y_train<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/y_train.txt",header=FALSE)
 subject_train<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/subject_train.txt",header=FALSE)
 
-##Read test dataset
+###Read test dataset
 X_test<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt",header=FALSE) 
 y_test<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/y_test.txt",header=FALSE)
 subject_test<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/subject_test.txt",header=FALSE)
 
-##Read feature vector
+###Read feature vector
 features<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/features.txt",header=FALSE) 
 
-##Set the column names of datasets
+###Set the column names of datasets
 colnames(X_train)<-features$V2
 colnames(y_train)<-"label"
 colnames(subject_train)<-"subject"
@@ -21,15 +21,12 @@ colnames(X_test)<-features$V2
 colnames(y_test)<-"label"
 colnames(subject_test)<-"subject"
 
-##Combine train and test datasets with subject datasets
+###Combine train and test datasets with subject datasets
 train<-cbind(subject_train,y_train,X_train)
 test<-cbind(subject_test,y_test,X_test)
 
-##row combine training and test dataset
-complete<-rbind(train, test)
-
+###First Column combine training and then test datasets together and then Row combine those training and test datasets together
 complete <- rbind(cbind(subject_train,y_train,X_train),cbind(subject_test,y_test,X_test)) 
-
 
 ## 2.Extracts only the measurements on the mean and standard deviation for each measurement. 
 meanstd<-features[grep("mean\\(\\)|std\\(\\)", features$V2),]
@@ -41,6 +38,15 @@ newlabels<-c("WALKING","WALKING_UPSTAIRS","WALKING_DOWNSTAIRS","SITTING","STANDI
 complete$label<-factor(complete$label,levels=c(1,2,3,4,5,6),labels=newlabels)
 
 ## 4.Appropriately labels the data set with descriptive variable names.
+## Make the following changes to the variable names:
+##Acc	    Accelerometer
+##Gyro	    Gyroscope
+##Freq	    Frequency
+##Mag	    Magnitude
+##tBody     timeBody
+##tGravity	timeGravity
+##fBody	    fastFourierTransform_Body
+
 NewColNames<-colnames(completeMeanStd)
 NewColNames<-gsub("[Aa]cc","Accelerometer",NewColNames)
 NewColNames<-gsub("[Gg]yro","Gyroscope",NewColNames)
